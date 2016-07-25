@@ -1,10 +1,14 @@
-http = require('http');
+const http = require('http');
+const functions = require('./functions');
 
-http.createServer(function(req, rep) {
-  console.log('Request received!');
-  rep.writeHeader(200, { "Content-Type": "text/plain" });
-  rep.write("Hello World!");
-  rep.end();
-}).listen(8080);
+http.createServer(functions.dispatcher).listen(8080);
 
 console.log('Server is running...')
+
+// 'use strict';
+//
+// const app  = require('express')();
+// const POST = 8080;
+//
+// app.get('/', function(req, res) {
+// });
