@@ -1,0 +1,12 @@
+{
+  "name": "bda_payments",
+  "version": "0.1.0",
+  "description": "Microservice that handles payments from B2Beauty's applications",
+  "author": "Tiago Guedes <tiago@beautydate.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+  }
+}
