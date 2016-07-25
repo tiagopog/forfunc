@@ -1,11 +1,12 @@
 FROM node:4.4.7
 
-RUN mkdir -p /app
-WORKDIR /app
-COPY . /app
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
-#RUN npm install
+COPY package.json /usr/src/app
+RUN npm install
+
+COPY . /usr/src/app
 
 EXPOSE 8080
-
-#ENTRYPOINT ["node", "server.js"]
+CMD ["npm", "start"]
