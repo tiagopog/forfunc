@@ -11,4 +11,4 @@ RUN npm install -g nodemon
 COPY . /usr/src/app
 
 EXPOSE 8080
-CMD ["nodemon", "server.js"]
+CMD ["nodemon", "lib/server.js"]
