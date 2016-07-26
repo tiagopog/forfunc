@@ -1,14 +1,28 @@
 FROM node:4.4.7
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+RUN useradd --user-group --create-home --shell /bin/false app
 
-COPY package.json /usr/src/app
+ENV HOME=/home
+ENV APP_PATH=$HOME/app
+ENV LIB_PATH=$HOME/lib
 
-RUN npm install
-RUN npm install -g nodemon
+RUN mkdir -p $APP_PATH &&\
+    mkdir -p $LIB_PATH
 
-COPY . /usr/src/app
+WORKDIR $APP_PATH
 
-EXPOSE 8080
-CMD ["nodemon", "lib/server.js"]
+COPY package.json $LIB_PATH
+
+RUN chown -R app:app $HOME
+
+USER app
+
+RUN npm install --prefix $LIB_PATH --silent &&\
+    npm install express --prefix $LIB_PATH --silent &&\
+    npm install --prefix $LIB_PATH --save-dev nodemon --silent &&\
+    npm cache clean &&\
+    ln -s $LIB_PATH/node_modules/ node_modules
+
+EXPOSE 3000
+
+CMD ["node_modules/.bin/nodemon", "lib/server.js"]
