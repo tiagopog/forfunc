@@ -25,4 +25,4 @@ RUN npm install --prefix $LIB_PATH --silent &&\
 
 EXPOSE 3000
 
-CMD ["node_modules/.bin/nodemon", "lib/server.js"]
+CMD ["node_modules/.bin/nodemon", "config/server.js"]

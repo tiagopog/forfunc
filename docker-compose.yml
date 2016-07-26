@@ -1,6 +1,6 @@
 payments:
   build: .
-  command: bash -c "node_modules/.bin/nodemon lib/server.js"
+  command: bash -c "node_modules/.bin/nodemon config/server.js"
   ports:
     - "3000:3000"
   expose:
