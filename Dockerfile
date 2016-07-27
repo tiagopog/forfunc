@@ -19,6 +19,7 @@ USER app
 
 RUN npm install --prefix $LIB_PATH --silent &&\
     npm install express --prefix $LIB_PATH --silent &&\
+    npm install body-parser --prefix $LIB_PATH --silent &&\
     npm install --prefix $LIB_PATH --save-dev nodemon --silent &&\
     npm cache clean &&\
     ln -s $LIB_PATH/node_modules/ node_modules
