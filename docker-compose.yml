@@ -1,4 +1,4 @@
-payments:
+app:
   build: .
   command: bash -c "node_modules/.bin/nodemon app.js"
   ports:

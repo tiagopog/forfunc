@@ -6,7 +6,7 @@
  * @return {}
  * @public
  */
-exports.payers = function dispatcher(req, res) {
+exports.dispatcher = function dispatcher(req, res) {
   switch (req.method) {
     case 'GET':
       console.log('GET /payments');
