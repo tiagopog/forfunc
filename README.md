@@ -1,2 +1,2 @@
 # WIP
-Microservice that handles payments for B2Beauty's applications
+Microframework to develop and organize your Google Cloud Functions with ease.
